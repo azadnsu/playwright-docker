@@ -12,7 +12,6 @@ test.describe("Login Test", async ()=>{
         browser = await chromium.launch();
         context = await browser.newContext();
         page = await context.newPage();
-        await page.goto(data.BASE_URL);
     })
 
     test.afterAll(async ()=>{
@@ -23,13 +22,15 @@ test.describe("Login Test", async ()=>{
 
     test("Login to OrangeHRM", async ()=> {
         login = new LoginPage(page);
+        await page.goto(data.BASE_URL);
         await expect(page).toHaveURL(/.*login/);
         await page.waitForLoadState("networkidle");
-        await login.enterLoginCredentials(data.ADMIN_USER_NAME, data.ADMIN_USER_PASSWORD)
+        await login.enterLoginCredentials(data.ADMIN_USER_NAME, data.ADMIN_USER_PASSWORD);
+        await login.submitLogin();
+        await expect(page).toHaveURL(/.*dashboard/)
     });
 
     test("Logout from the OrangeHRM", async()=>{
-        await page.waitForTimeout(3000);
         await page.locator(".oxd-userdropdown-name").click()
         await Promise.all([
             page.waitForNavigation(),

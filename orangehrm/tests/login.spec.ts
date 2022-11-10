@@ -22,7 +22,7 @@ test.describe("Login Test", async ()=>{
 
     test("Login to OrangeHRM", async ()=> {
         login = new LoginPage(page);
-        await page.goto(data.BASE_URL);
+        await login.goto();
         await expect(page).toHaveURL(/.*login/);
         await page.waitForLoadState("networkidle");
         await login.enterLoginCredentials(data.ADMIN_USER_NAME, data.ADMIN_USER_PASSWORD);

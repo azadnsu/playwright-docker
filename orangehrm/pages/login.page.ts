@@ -25,7 +25,7 @@ export class LoginPage {
 
     }
 
-    async submitLogin() {
+    async submitLogin(): Promise<void> {
         await Promise.all([
             this.page.waitForResponse((response) => response.url().includes("api/v2/dashboard/employees/action-summary") && response.status() === 200),
             this.btnLogin.click()

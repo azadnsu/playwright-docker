@@ -15,10 +15,6 @@ export class LoginPage {
         this.btnLogin = page.locator('button:has-text("Login")');
     }
 
-    async goto() : Promise<void> {
-        await this.page.goto('/');
-    }
-
     async enterLoginCredentials(username: string, password: string): Promise<void> {
         await this.usernameField.fill(username);
         await this.passwordField.fill(password);

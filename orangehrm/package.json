@@ -1,0 +1,24 @@
+{
+  "name": "playwright-docker",
+  "version": "1.0.0",
+  "description": "# This is a simple e2e test suite running in cloud using docker image",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azadnsu/playwright-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azadnsu/playwright-docker/issues"
+  },
+  "homepage": "https://github.com/azadnsu/playwright-docker#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.27.1"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
+  }
+}
